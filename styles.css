@@ -1,0 +1,1354 @@
+css
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --cream: #fffaf7;
+
+    --pink-light: #ffe8ef;
+    --pink-soft: #f8bfd0;
+    --pink: #e987a8;
+    --pink-dark: #ce668c;
+
+    --lilac: #ded0f1;
+    --blue: #dcecf2;
+
+    --green-light: #bdd9ba;
+    --green: #86b889;
+    --green-dark: #6d9e72;
+
+    --yellow: #f5d68c;
+
+    --text: #5d4a54;
+    --text-light: #907883;
+
+    --white: #ffffff;
+
+    --card-shadow:
+        0 25px 70px rgba(120, 75, 95, 0.15);
+
+    --button-shadow:
+        0 12px 28px rgba(210, 100, 140, 0.23);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    font-family:
+        "Segoe UI",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            #ffe7ef 0,
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            #e7dcf5 0,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            160deg,
+            #fffaf8 0%,
+            #fff3f7 55%,
+            #f3f2fb 100%
+        );
+
+    transition:
+        background 1.2s ease;
+}
+
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* Luna */
+
+.moon {
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    top: 7%;
+    right: 8%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 248, 225, 0.75);
+
+    box-shadow:
+        0 0 45px
+        rgba(255, 222, 160, 0.25);
+}
+
+
+/* =====================================================
+   LUCES
+===================================================== */
+
+.sparkle {
+
+    position: absolute;
+
+    color:
+        rgba(214, 137, 167, 0.55);
+
+    animation:
+        twinkle 3s ease-in-out infinite;
+}
+
+
+.sparkle-1 {
+    top: 12%;
+    left: 18%;
+}
+
+.sparkle-2 {
+    top: 24%;
+    left: 76%;
+    animation-delay: 1s;
+}
+
+.sparkle-3 {
+    top: 17%;
+    left: 45%;
+    font-size: 25px;
+    animation-delay: .5s;
+}
+
+.sparkle-4 {
+    top: 36%;
+    left: 9%;
+    animation-delay: 1.7s;
+}
+
+.sparkle-5 {
+    top: 42%;
+    right: 14%;
+    font-size: 28px;
+    animation-delay: .8s;
+}
+
+.sparkle-6 {
+    top: 10%;
+    right: 30%;
+    animation-delay: 2s;
+}
+
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+
+        opacity: .25;
+
+        transform:
+            scale(.8)
+            rotate(0deg);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.25)
+            rotate(20deg);
+    }
+}
+
+
+/* =====================================================
+   CORAZONES FLOTANTES
+===================================================== */
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -40px;
+
+    color:
+        rgba(222, 119, 153, 0.22);
+
+    animation:
+        floating-heart 12s linear infinite;
+}
+
+
+.heart-1 {
+    left: 10%;
+    font-size: 20px;
+}
+
+.heart-2 {
+    left: 28%;
+    font-size: 30px;
+    animation-delay: 3s;
+}
+
+.heart-3 {
+    left: 51%;
+    font-size: 18px;
+    animation-delay: 1s;
+}
+
+.heart-4 {
+    left: 72%;
+    font-size: 25px;
+    animation-delay: 5s;
+}
+
+.heart-5 {
+    left: 90%;
+    font-size: 18px;
+    animation-delay: 7s;
+}
+
+
+@keyframes floating-heart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: .8;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-110svh)
+            rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.page {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px;
+}
+
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.card {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(92vw, 500px);
+
+    padding:
+        clamp(27px, 5vw, 46px)
+        clamp(20px, 6vw, 45px);
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, .78);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .95);
+
+    border-radius: 32px;
+
+    box-shadow:
+        var(--card-shadow);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    animation:
+        card-in .9s
+        cubic-bezier(.22, 1, .36, 1)
+        both;
+}
+
+
+@keyframes card-in {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.96);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   TEXTO SUPERIOR
+===================================================== */
+
+.eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    color: var(--pink-dark);
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+.eyebrow span {
+
+    width: 22px;
+    height: 1px;
+
+    background:
+        var(--pink-soft);
+}
+
+
+/* =====================================================
+   CORAZÓN
+===================================================== */
+
+.main-heart {
+
+    position: relative;
+
+    width: 82px;
+    height: 82px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 18px;
+
+    color: var(--pink);
+
+    font-size: 45px;
+
+    animation:
+        heartbeat 2.2s
+        ease-in-out infinite;
+}
+
+
+.heart-glow {
+
+    position: absolute;
+
+    inset: 13px;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink-light);
+
+    filter:
+        blur(15px);
+}
+
+
+.main-heart > span {
+
+    position: relative;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(200, 90, 130, .2)
+        );
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.08);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.06);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   PREGUNTA
+===================================================== */
+
+h1 {
+
+    font-size:
+        clamp(2.4rem, 10vw, 3.8rem);
+
+    line-height: 1;
+
+    letter-spacing:
+        -.055em;
+
+    color:
+        var(--text);
+}
+
+
+.subtitle {
+
+    margin-top: 14px;
+
+    color:
+        var(--text-light);
+
+    font-size:
+        clamp(.88rem, 3.5vw, 1rem);
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.actions {
+
+    position: relative;
+
+    min-height: 64px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 29px;
+}
+
+
+.button {
+
+    min-width: 116px;
+
+    padding:
+        14px 25px;
+
+    border: 0;
+
+    border-radius: 999px;
+
+    font-family: inherit;
+
+    font-size: .94rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+/* =====================================================
+   BOTÓN SÍ
+===================================================== */
+
+.button-yes {
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f6abc3,
+            #e6789e
+        );
+
+    box-shadow:
+        var(--button-shadow);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.button-yes::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 180%;
+
+    top: -40%;
+    left: -100px;
+
+    background:
+        rgba(255,255,255,.28);
+
+    transform:
+        rotate(20deg);
+
+    transition:
+        left .7s ease;
+}
+
+
+.button-yes:hover::after {
+    left: 150%;
+}
+
+
+.button-yes:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 16px 34px
+        rgba(216, 95, 137, .3);
+}
+
+
+.button-yes:active {
+    transform: scale(.96);
+}
+
+
+/* =====================================================
+   BOTÓN NO
+===================================================== */
+
+.button-no {
+
+    position: relative;
+
+    color:
+        var(--text);
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        1px solid
+        rgba(210,100,140,.18);
+
+    box-shadow:
+        0 8px 20px
+        rgba(120,80,100,.10);
+
+    touch-action: none;
+}
+
+
+.button-no.escaping {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+
+    transition:
+        transform .42s
+        cubic-bezier(.22,1,.36,1);
+
+    will-change: transform;
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.love-message {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 27px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(15px)
+        scale(.9);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        visibility .6s;
+}
+
+
+.love-message.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+.love-message strong {
+
+    display: block;
+
+    color:
+        var(--pink-dark);
+
+    font-size:
+        clamp(1.5rem, 6vw, 2rem);
+}
+
+
+.love-message small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color:
+        var(--text-light);
+
+    font-size: .76rem;
+}
+
+
+.message-heart {
+
+    color:
+        var(--pink-soft);
+
+    font-size: 1.4rem;
+
+    animation:
+        tiny-heart 1.4s
+        ease-in-out infinite;
+}
+
+
+@keyframes tiny-heart {
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   CAMPO DE FLORES
+===================================================== */
+
+.flower-field {
+
+    position: absolute;
+
+    z-index: 1;
+
+    bottom: -5px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 145px;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   COLINAS
+===================================================== */
+
+.hill {
+
+    position: absolute;
+
+    bottom: -100px;
+
+    border-radius: 50%;
+}
+
+
+.hill-back {
+
+    left: -10%;
+
+    width: 70%;
+
+    height: 170px;
+
+    background:
+        rgba(190, 218, 188, .6);
+
+    transform:
+        rotate(-3deg);
+}
+
+
+.hill-front {
+
+    right: -10%;
+
+    width: 75%;
+
+    height: 145px;
+
+    background:
+        rgba(169, 207, 170, .72);
+
+    transform:
+        rotate(3deg);
+}
+
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.flower {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    width: 45px;
+    height: 90px;
+
+    transform-origin:
+        bottom center;
+
+    animation:
+        flower-sway 3.8s
+        ease-in-out infinite;
+}
+
+
+.flower-1 {
+    left: 7%;
+    animation-delay: -.5s;
+}
+
+.flower-2 {
+    left: 21%;
+    bottom: 13px;
+    transform: scale(.78);
+    animation-delay: -1.5s;
+}
+
+.flower-3 {
+    left: 36%;
+    bottom: 20px;
+    transform: scale(.9);
+    animation-delay: -.8s;
+}
+
+.flower-4 {
+    right: 34%;
+    bottom: 18px;
+    transform: scale(.82);
+    animation-delay: -2s;
+}
+
+.flower-5 {
+    right: 19%;
+    bottom: 12px;
+    transform: scale(.72);
+    animation-delay: -1s;
+}
+
+.flower-6 {
+    right: 5%;
+    bottom: 25px;
+    transform: scale(.95);
+    animation-delay: -2.5s;
+}
+
+
+@keyframes flower-sway {
+
+    0%,
+    100% {
+        rotate: -2deg;
+    }
+
+    50% {
+        rotate: 3deg;
+    }
+}
+
+
+/* =====================================================
+   TALLOS
+===================================================== */
+
+.stem {
+
+    position: absolute;
+
+    left: 21px;
+    bottom: 0;
+
+    width: 3px;
+    height: 55px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            var(--green-dark),
+            var(--green)
+        );
+}
+
+
+/* =====================================================
+   HOJAS
+===================================================== */
+
+.leaf {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    width: 22px;
+    height: 10px;
+
+    background:
+        var(--green);
+
+    border-radius:
+        100% 0 100% 0;
+}
+
+
+.leaf-left {
+
+    left: 3px;
+
+    rotate: -25deg;
+}
+
+
+.leaf-right {
+
+    right: 1px;
+
+    rotate: 25deg;
+
+    border-radius:
+        0 100% 0 100%;
+}
+
+
+/* =====================================================
+   PÉTALOS
+===================================================== */
+
+.petal {
+
+    position: absolute;
+
+    top: 5px;
+    left: 13px;
+
+    width: 19px;
+    height: 28px;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        #f7c0d2;
+
+    transform-origin:
+        9px 18px;
+}
+
+
+.p1 {
+    transform:
+        rotate(0deg)
+        translateY(-7px);
+}
+
+.p2 {
+    transform:
+        rotate(90deg)
+        translateY(-7px);
+}
+
+.p3 {
+    transform:
+        rotate(180deg)
+        translateY(-7px);
+}
+
+.p4 {
+    transform:
+        rotate(270deg)
+        translateY(-7px);
+}
+
+
+.pink .petal {
+    background:
+        #efabc3;
+}
+
+
+.lavender .petal {
+    background:
+        #cdb8e8;
+}
+
+
+/* =====================================================
+   CENTRO DE LAS FLORES
+===================================================== */
+
+.center {
+
+    position: absolute;
+
+    top: 24px;
+    left: 17px;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(245,214,140,.25);
+}
+
+
+/* =====================================================
+   PASTO
+===================================================== */
+
+.grass {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    width: 3px;
+
+    height: 24px;
+
+    border-radius: 5px;
+
+    background:
+        var(--green-dark);
+
+    transform-origin:
+        bottom;
+
+    animation:
+        grass-sway 2.7s
+        ease-in-out infinite;
+}
+
+
+.grass-1 {
+    left: 14%;
+}
+
+.grass-2 {
+    left: 31%;
+    height: 18px;
+    animation-delay: .5s;
+}
+
+.grass-3 {
+    left: 49%;
+    height: 27px;
+    animation-delay: 1s;
+}
+
+.grass-4 {
+    right: 29%;
+    height: 19px;
+    animation-delay: .3s;
+}
+
+.grass-5 {
+    right: 12%;
+    height: 25px;
+    animation-delay: .8s;
+}
+
+.grass-6 {
+    left: 58%;
+    height: 17px;
+    animation-delay: 1.2s;
+}
+
+
+@keyframes grass-sway {
+
+    0%,
+    100% {
+        transform:
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            rotate(8deg);
+    }
+}
+
+
+/* =====================================================
+   PIE DE PÁGINA
+===================================================== */
+
+.footer-text {
+
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 10px;
+
+    color:
+        rgba(100,75,88,.52);
+
+    font-size: .7rem;
+
+    letter-spacing: .04em;
+}
+
+
+/* =====================================================
+   CELEBRACIÓN
+===================================================== */
+
+body.celebrating {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            #ffe0ea,
+            transparent 33%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            #e5d9f5,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            160deg,
+            #fff8fb,
+            #f9f2ff,
+            #effaff
+        );
+}
+
+
+.button-yes.selected {
+
+    animation:
+        selected-button .7s
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+@keyframes selected-button {
+
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   TABLETS
+===================================================== */
+
+@media (min-width: 600px) {
+
+    .card {
+        padding:
+            45px 52px;
+    }
+
+    .flower-field {
+        height: 175px;
+    }
+
+    .flower {
+        transform:
+            scale(1.1);
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .page {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .card {
+
+        width: 94vw;
+
+        padding:
+            25px 17px;
+
+        border-radius: 27px;
+    }
+
+    .eyebrow {
+        font-size: .6rem;
+    }
+
+    .main-heart {
+
+        width: 67px;
+        height: 67px;
+
+        font-size: 37px;
+
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 2.3rem;
+    }
+
+    .actions {
+
+        gap: 8px;
+
+        margin-top: 25px;
+    }
+
+    .button {
+
+        min-width: 103px;
+
+        padding:
+            12px 17px;
+    }
+
+    /* Reducimos el campo en móviles */
+
+    .flower-field {
+        height: 105px;
+    }
+
+    .flower {
+
+        bottom: 8px;
+
+        transform:
+            scale(.65);
+    }
+
+    .flower-2,
+    .flower-5 {
+        display: none;
+    }
+
+    .moon {
+
+        width: 70px;
+        height: 70px;
+
+        top: 4%;
+        right: 7%;
+    }
+}
+
+
+/* =====================================================
+   REDUCIR ANIMACIONES
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+}
